@@ -1,4 +1,4 @@
-pipeline {
+pipeline { 
     agent any
 
     tools {
@@ -11,12 +11,6 @@ pipeline {
     }
 
     stages {
-        stage('Clone Repo') {
-            steps {
-                git 'https://github.com/your-username/your-repo-name.git'
-            }
-        }
-
         stage('Build with Maven') {
             steps {
                 sh 'mvn clean package'

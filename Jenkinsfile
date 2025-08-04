@@ -26,5 +26,11 @@ pipeline {
         stage('Deploy to EC2') {
             steps {
                 sh '''
-                mkdir -p $DEPLOY_DIR
-                cp targe
+                    mkdir -p $DEPLOY_DIR
+                    cp target/*.jar $DEPLOY_DIR/app.jar
+                    nohup java -jar $DEPLOY_DIR/app.jar > $DEPLOY_DIR/app.log 2>&1 &
+                '''
+            }
+        }
+    }
+}
